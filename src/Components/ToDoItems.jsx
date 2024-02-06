@@ -14,11 +14,11 @@ const ToDoItems = ({ no, display, text, setTodos }) => {
     const toggle = (no) => {
         let data = JSON.parse(localStorage.getItem('todos'));
         for (let i = 0; i < data.length; i++) {
-            console.log("data[i].no" ,data[i].no);
-            console.log("no" , no);
+            // console.log("data[i].no" ,data[i].no);
+            // console.log("no" , no);
             if (data[i].no === no) {
                 if (data[i].display === "") {
-                    console.log("mitovy sy vide" , no);
+                    // console.log("mitovy sy vide" , no);
                     data[i].display = "line-through";
                 } else {
                     data[i].display = "";
@@ -26,7 +26,7 @@ const ToDoItems = ({ no, display, text, setTodos }) => {
                 break;
             }
         }
-        console.log("data0" ,data);
+        // console.log("data0" ,data);
         setTodos(data);
     }
 
