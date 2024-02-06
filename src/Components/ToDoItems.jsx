@@ -4,6 +4,12 @@ import noTick from "./assets/no-tick.png";
 import cross from "./assets/x-btn.png";
 
 const ToDoItems = ({ no, display, text, setTodos }) => {
+
+    const deletebtn = (no) => {
+        let data = JSON.parse(localStorage.getItem('todos'));
+        data = data.filter((todo) => todo.no !== no);
+        setTodos(data);
+    }
     
     const toggle = (no) => {
         let data = JSON.parse(localStorage.getItem('todos'));
@@ -31,7 +37,7 @@ const ToDoItems = ({ no, display, text, setTodos }) => {
                     {display === "" ? (<img src={noTick} alt="" /> ) : (<img src={tick} alt="" />)}
                     <div className="todoitems-text">{text}</div>
                 </div>
-                <img className="todoitems-cross-icon" src={cross} alt="" />
+                <img onClick={()=> {deletebtn(no)}} className="todoitems-cross-icon" src={cross} alt="" />
             </div>
         </div>
     );
